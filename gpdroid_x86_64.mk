@@ -1,0 +1,54 @@
+#
+# Copyright (C) 2014 The Android-x86 Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# includes the base of Android-x86 platform
+$(call inherit-product,device/generic/common/x86_64.mk)
+
+# Overrides
+PRODUCT_NAME := gpdroid_x86_64
+PRODUCT_BRAND := Android-x86
+PRODUCT_DEVICE := x86_64
+PRODUCT_MODEL := Generic Android-x86_64
+
+# Workaround build fingerprint too long
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="Blissful-user 14 AP2A.240905.003 0 release-keys" \
+
+BUILD_FINGERPRINT := Android-x86/Blissful/x86_64:14/AP2A.240905.003/0:user/release-keys
+
+PRODUCT_PACKAGES += \
+    MultiClientInputMethod \
+    libgpportservice \
+    gpportservice \
+    libdetectposhw \
+    detectposhw \
+    generate-touch-association \
+    input-port-associations-XENIALXC23.xml \
+    input-port-associations-GC26.xml \
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.multi_client_ime=com.example.android.multiclientinputmethod/.MultiClientInputMethod
+
+PRODUCT_COPY_FILES += \
+  device/generic/x86_64/display_settings.xml:system/etc/display_settings.xml \
+  device/generic/x86_64/copy_display_settings.sh:system/bin/copy_display_settings.sh \
+
+PRODUCT_PACKAGE_OVERLAYS += device/generic/x86_64/overlay
+
+SELINUX_IGNORE_NEVERALLOWS := true
+
+LOCAL_PATH := $(call my-dir)
+BOARD_SEPOLICY_DIRS += vendor/gpdroid/sepolicy
