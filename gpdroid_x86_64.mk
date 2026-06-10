@@ -23,12 +23,6 @@ PRODUCT_BRAND := Android-x86
 PRODUCT_DEVICE := x86_64
 PRODUCT_MODEL := Generic Android-x86_64
 
-# Workaround build fingerprint too long
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="Blissful-user 14 AP2A.240905.003 0 release-keys" \
-
-BUILD_FINGERPRINT := Android-x86/Blissful/x86_64:14/AP2A.240905.003/0:user/release-keys
-
 PRODUCT_PACKAGES += \
     MultiClientInputMethod \
     libgpportservice \
@@ -52,3 +46,4 @@ SELINUX_IGNORE_NEVERALLOWS := true
 
 LOCAL_PATH := $(call my-dir)
 BOARD_SEPOLICY_DIRS += vendor/gpdroid/sepolicy
+
