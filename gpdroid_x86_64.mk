@@ -24,6 +24,7 @@ PRODUCT_DEVICE := x86_64
 PRODUCT_MODEL := Generic Android-x86_64
 
 PRODUCT_PACKAGES += \
+#    MultiDisplay \
     MultiClientInputMethod \
     libgpportservice \
     gpportservice \
@@ -34,13 +35,14 @@ PRODUCT_PACKAGES += \
     input-port-associations-GC26.xml \
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.multi_client_ime=com.example.android.multiclientinputmethod/.MultiClientInputMethod
+    ro.sys.multi_client_ime=com.example.android.multiclientinputmethod/.MultiClientInputMethod \
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sysui.disable_mirroring_confirmation_dialog=true \
 
 PRODUCT_COPY_FILES += \
   device/generic/x86_64/display_settings.xml:system/etc/display_settings.xml \
   device/generic/x86_64/copy_display_settings.sh:system/bin/copy_display_settings.sh \
-
-PRODUCT_PACKAGE_OVERLAYS += device/generic/x86_64/overlay
 
 SELINUX_IGNORE_NEVERALLOWS := true
 
