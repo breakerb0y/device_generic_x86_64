@@ -24,8 +24,6 @@ PRODUCT_DEVICE := x86_64
 PRODUCT_MODEL := Generic Android-x86_64
 
 PRODUCT_PACKAGES += \
-#    MultiDisplay \
-    MultiClientInputMethod \
     libgpportservice \
     gpportservice \
     libdetectposhw \
@@ -33,9 +31,6 @@ PRODUCT_PACKAGES += \
     generate-touch-association \
     input-port-associations-XENIALXC23.xml \
     input-port-associations-GC26.xml \
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.multi_client_ime=com.example.android.multiclientinputmethod/.MultiClientInputMethod \
 
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sysui.disable_mirroring_confirmation_dialog=true \
@@ -45,6 +40,7 @@ PRODUCT_COPY_FILES += \
   device/generic/x86_64/copy_display_settings.sh:system/bin/copy_display_settings.sh \
 
 SELINUX_IGNORE_NEVERALLOWS := true
+TARGET_EXCLUDES_AUDIOFX := true
 
 LOCAL_PATH := $(call my-dir)
 BOARD_SEPOLICY_DIRS += vendor/gpdroid/sepolicy
