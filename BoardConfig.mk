@@ -41,3 +41,8 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 
 include device/generic/common/BoardConfig.mk
+
+BOARD_VENDOR_SEPOLICY_DIRS += vendor/gpdroid/sepolicy
+
+BOARD_VENDOR_FILE_CONTEXTS += vendor/gpdroid/sepolicy/file_contexts
+BOARD_VENDOR_PROPERTY_CONTEXTS += vendor/gpdroid/sepolicy/property_contexts

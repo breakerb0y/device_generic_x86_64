@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += \
     generate-touch-association \
     input-port-associations-XENIALXC23.xml \
     input-port-associations-GC26.xml \
+    vendor_sepolicy_custom_conf \
+    vendor_file_contexts\
+    vendor_property_contexts\
+    toggle-screenmode\
 
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sysui.disable_mirroring_confirmation_dialog=true \
